@@ -80,17 +80,23 @@ public class FactorialAndMore extends Application{
                     int prevPrevValue = 0;
                     count = 0;
                     List<Integer> fibo = new ArrayList<>();
+                    fibo.add(1);
                     do{
                         int currValue = prevValue + prevPrevValue;
                         prevPrevValue = prevValue;
                         prevValue = currValue;
                         fibo.add(currValue);
                         count++;
-                    } while (count < input);
+                    } while (count < (input-1));
                     Label fiboLabel = new Label("The first " + input + " numbers in the Fibonacci Sequence are: ");
                     grid.add(fiboLabel, 0, 7);
                     Text FiboNum = new Text(fibo.toString());
                     grid.add(FiboNum, 2, 7);
+                    grid.getChildren().remove(1,3);
+                    grid.getChildren().remove(1,2);
+                    grid.getChildren().remove(1,1);
+                    grid.getChildren().remove(0,1);
+                    grid.getChildren().remove(0,0);
                 }
         });
 
